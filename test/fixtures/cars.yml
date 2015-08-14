@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  weight: 9.99
+  fuel_tank_capacity: 9.99
+  gas_per_kilometer: 9.99
+  tire_radious: 9.99
+  name: MyString
+
+two:
+  weight: 9.99
+  fuel_tank_capacity: 9.99
+  gas_per_kilometer: 9.99
+  tire_radious: 9.99
+  name: MyString

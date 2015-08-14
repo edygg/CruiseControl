@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Weight:</strong>
+  <%= @car.weight %>
+</p>
+
+<p>
+  <strong>Fuel tank capacity:</strong>
+  <%= @car.fuel_tank_capacity %>
+</p>
+
+<p>
+  <strong>Gas per kilometer:</strong>
+  <%= @car.gas_per_kilometer %>
+</p>
+
+<p>
+  <strong>Tire radious:</strong>
+  <%= @car.tire_radious %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @car.name %>
+</p>
+
+<%= link_to 'Edit', edit_car_path(@car) %> |
+<%= link_to 'Back', cars_path %>
