@@ -22,6 +22,24 @@ $(document).ready(function() {
     return false;
   });
   
+  $('body').on('keydown', function(e) {
+    e.preventDefault();
+    if (e.keyCode == 87) { // W
+      console.log("Acelerando");
+      if (current_car)
+        current_car.accelerate();
+      updateComponents();
+    } else if (e.keyCode == 83) { // S
+      console.log("Frenando");
+      if (current_car)
+        current_car.break();
+    }
+  });
+  
+  function updateComponents() {
+    speedometer.animatedUpdate(current_car.current_speed, 100);
+  }
+  
   function Car(options) {
     var parameters =  {
       name: options.name || "Default name",
@@ -34,10 +52,23 @@ $(document).ready(function() {
     this.name = parameters.name;
     this.weight = parameters.weight;
     this.fuel_tank_capacity = parameters.fuel_tank_capacity;
+    this.current_fuel_level = parameters.fuel_tank_capacity;
     this.gas_per_kilometer = parameters.gas_per_kilometer;
     this.tire_radious = parameters.tire_radious;
-    this.curent_speed = 0;
+    this.current_speed = 0;
     this.cruiser_on = false;
     this.accelerating = false;
+    var self = this;
+    
+    this.accelerate = function() {
+      if (self.current_speed <= 100)
+        self.current_speed += 1;
+    }
+    
+    this.break = function() {
+      if (self.current_speed > 0) {
+        self.current_speed -= 1;
+      }
+    }
   }
 });
