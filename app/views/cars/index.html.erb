@@ -1,35 +1,41 @@
-<p id="notice"><%= notice %></p>
+<div class="col-md-8 col-md-offset-2">
+  <div class="page-header">
+    <h1>Cars <small>Listing cars</small></h1>
+  </div>
 
-<h1>Listing Cars</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Weight</th>
-      <th>Fuel tank capacity</th>
-      <th>Gas per kilometer</th>
-      <th>Tire radious</th>
-      <th>Name</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @cars.each do |car| %>
+  <% unless notice.nil? || notice.empty? %>
+    <div class="alert alert-info"><%= notice %></div>
+  <% end %>
+  <table class="table table-hover">
+    <thead>
       <tr>
-        <td><%= car.weight %></td>
-        <td><%= car.fuel_tank_capacity %></td>
-        <td><%= car.gas_per_kilometer %></td>
-        <td><%= car.tire_radious %></td>
-        <td><%= car.name %></td>
-        <td><%= link_to 'Show', car %></td>
-        <td><%= link_to 'Edit', edit_car_path(car) %></td>
-        <td><%= link_to 'Destroy', car, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th>Weight</th>
+        <th>Fuel tank capacity</th>
+        <th>Gas per kilometer</th>
+        <th>Tire radious</th>
+        <th>Name</th>
+        <th colspan="3"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
 
-<br>
+    <tbody>
+      <% @cars.each do |car| %>
+        <tr>
+          <td><%= car.weight %></td>
+          <td><%= car.fuel_tank_capacity %></td>
+          <td><%= car.gas_per_kilometer %></td>
+          <td><%= car.tire_radious %></td>
+          <td><%= car.name %></td>
+          <td><%= link_to 'Show', car, class: 'btn btn-small btn-default' %></td>
+          <td><%= link_to 'Edit', edit_car_path(car), class: 'btn btn-small btn-info' %></td>
+          <td><%= link_to 'Destroy', car, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-small btn-danger' %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 
-<%= link_to 'New Car', new_car_path %>
+  <br>
+
+  <%= link_to 'New Car', new_car_path, class: 'btn btn-success' %>
+
+</div>

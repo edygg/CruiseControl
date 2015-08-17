@@ -1,0 +1,36 @@
+<div class="row">
+  <div class="col-md-4 col-md-offset-4">
+    <%= form_tag('', class: 'form-horizontal', id: 'car_type_form') do %>
+      <div class="form-group">
+        <%= label_tag :simulation, 'Car type', class: 'col-md-4 control-label' %>
+        <div class="col-md-8">
+          <%= collection_select(:simulation, :car_id, Car.all, :id, :name, { }, { class: 'form-control', id: 'car_select' }) %>
+        </div>
+      </div>
+
+      <%= submit_tag('Start simulation', class: 'btn btn-success', id: 'start_simulation_button') %>
+    <% end %>
+  </div>
+</div>
+<br><br>
+<div class="row">
+  <div class="col-md-8 col-md-offset-2">
+    <div class="col-md-6">
+      <div class="row"><div id="speedometer"></div></div>
+      <div class="row"><!-- Distance --></div>
+    </div>
+    <div class="col-md-6">
+      <div class="row"><!-- fuel --></div>
+      <div class="row">
+        <!-- cruise control -->
+        <button type="button" class="btn btn-info" data-toggle="button" aria-pressed="false" autocomplete="off">
+          Cruise control
+        </button>
+      </div>
+      <div class="row"><!-- angle --></div>
+      <div class="row">
+      <button type="button" class="btn btn-danger" id="stop_simulation_button">Stop simulation</button>
+      </div>
+    </div>
+  </div>
+</div>

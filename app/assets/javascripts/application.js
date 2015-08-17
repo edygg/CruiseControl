@@ -12,5 +12,13 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
+//= require bootstrap-sprockets
+
+// Speedometer
+//= require speedometer/xcanvas
+//= require speedometer/tbe
+//= require speedometer/digitaldisplay
+//= require speedometer/speedometer
+//= require speedometer/themes/default
+
 //= require_tree .
